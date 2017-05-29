@@ -50,12 +50,14 @@ Infrared -> Created a design for the pen which will work just fine, by using con
 One of our initial ideas, and the final idea for the project.
 Will consist of alternately placed IR emitters and photo diodes placed on a frame.
 The frame will be attached to the sides of the display.
-The output of photo diodes will go through the analog multiplexers to arduino and to the compyter and python code will help us find out the exact position of the finger on the screen through easy python code.
+The output of photo diodes will go through the analog multiplexers to arduino and to the computer and python code will help us find out the exact position of the finger on the screen through easy python code.
 Implementation of machine learning to improve accuracy.
 Addition of multi finger gestures.
 
 
 ![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/frame.png "Logo Title Text 1")
+
+** From the above options, we decided for option described in section 1.2.3 **
 
 
 

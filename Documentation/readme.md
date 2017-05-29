@@ -16,4 +16,10 @@ Touch-screen technology has found use in devices ranging from cell phones to sup
 Touch screens also increase the speed of tasks.Touch screens allow users to select icons directly, without worrying about aligning cursor in horizontal and vertical directions in case of mouse or trackpad.
 Touch screens are also valuable in accommodating users with physical issues that might make a traditional mouse and keyboard setup difficult to use.
 
-### 1.2 
+### 1.2 Working Rule
+
+We had three ideas in mind for this project 
+* Having four emitters on four corners of the screen, and receiver on the pen.
+* One with four receivers on the corners and emitter on the pen.
+* One with array of emitters and receivers on the screen itself with no need for a pen.
+

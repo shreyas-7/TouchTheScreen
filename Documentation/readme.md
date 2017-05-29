@@ -23,3 +23,29 @@ We had three ideas in mind for this project
 * One with four receivers on the corners and emitter on the pen.
 * One with array of emitters and receivers on the screen itself with no need for a pen.
 
+#### 1.2.1 Four emitters in corners and reciever on pen
+
+This was our first idea for this project
+We had planned to use infrared sensors / ultrasonic sensors .
+Problem with infrared sensors – Their apex angle is small.
+Ultrasonic emitters did fine in sending the signals.
+Problem was with the receivers as we didn’t find any spherical receivers (IR or Ultrasonic), and designing one for the pen would have taken much more time.
+Provided that if we had managed to put an IR receiver in the pen, there would have been interference of signal, to which also, we had found a solution of firing emitters one-by-one to get individual signal.
+**But, after getting insight from our mentor, we found that there would be problem in co-ordination of the emitters.
+So we dropped this idea.**
+
+#### 1.2.2 Emitter on the pen and reciever on corners
+
+We tried two different methods for this approach, with infrared and with ultrasonic.
+Ultrasonic -> Fails to emit signals as the pen goes near to the display.
+Infrared -> Created a design for the pen which will work just fine, by using conical mirror to direct the signals perpendicular to the plane, and use of buttons to simulate a click
+**The design had it’s drawbacks, indeed causing us to drop the idea.**
+
+![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/sensor.jpeg "Logo Title Text 1")
+
+![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/sensor1.jpg "Logo Title Text 1")
+
+
+#### 1.2.3 
+
+

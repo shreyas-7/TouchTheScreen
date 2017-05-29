@@ -57,7 +57,7 @@ Addition of multi finger gestures.
 
 ![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/frame.png "Logo Title Text 1")
 
-** From the above options, we decided for option described in section 1.2.3 **
+**From the above options, we decided for option described in section 1.2.3**
 
 
 

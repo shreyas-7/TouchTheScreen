@@ -1,14 +1,22 @@
-import pandas as pd
-import numpy as np
+import ml
+import pandas as pd 
+from sklearn.svm import SVC
 
-x_columns = np.array(['approx_x', 'x_values', 'accurate_x'])
-y_columns = np.array(['approx_y', 'y_values', 'accurate_x'])
 
-x_df = pd.DataFrame({}, index = None, columns = x_columns)
-y_df = pd.DataFrame({}, index = None, columns = y_columns)
+svcmodel_x = SVR()
+svcmodel_y = SVR()
 
-x_df.to_csv('x_data.csv')
-y_df.to_csv('y_data.csv')
+x_df_app = np.array(x_df.app_x)
+y_df_app = np.array(y_df.app_y)
 
-print x_df
-print y_df
+x_df_acc = np.array(x_df.acc_x)
+y_df_acc = np.array(y_df.acc_y)
+
+x_df_val = np.array(x_df.x_val)
+y_df_val = np.array(y_df.y_val)
+
+svcmodel_x.fit(np.array([x_df_app,x_df_val]),x_df_ans)
+svcmodel_y.fit(np.array([y_df_app,y_df_val]),y_df_ans)
+
+def prediction_of(x,y) :
+	return svcmodel_x.predict(x) , svcmodel_y.predict(y)

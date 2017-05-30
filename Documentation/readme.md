@@ -84,8 +84,8 @@ Final size of frame - 24x40
 ### 1.5 Solution to the Problems
 
 * The number of LEDs used was reduced so as to ensure that considerable intensity is shown by them
-* The appropriate demux circuit was made into the breadboard
-* Final assembly consist of LEDs placed 3 units apart in PCB and demultiplexers in the breadboard.
+* The appropriate photodiode circuit was made into the breadboard
+* Final assembly consist of LEDs placed 3 units apart in PCB and IR sensors in the breadboard.
 
 
 

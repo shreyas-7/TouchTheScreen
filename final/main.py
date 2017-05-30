@@ -1,18 +1,24 @@
 import numpy as np
-import pandas as pd 
-import matplotlib.pyplot as plt
+
+import pandas as pd
+
 import time
+
 from pynput.mouse import Button, Controller
 mouse = Controller()
+
 import pyautogui
 
-import functions.py 
-import ml.py
+from sklearn.svm import SVR
+
+import functions
+
+import ml
 
 # assuming I have created a function named predictions_x(x) , predictions_y(y)
 # memory array will be like
 """
-if 0 fingers - [[]]
+if 0 fingers - []
 if 1 finger - [position]
 if 2 fingers - [position,position]]
 """
@@ -76,7 +82,7 @@ def main () :
 			do_click(i)
 			do_doubleclick(i)
 			do_rightclick(i)
-			do_drag(i)
+			#do_drag(i)
 
 
 		elif no_of_fingers == 2 :
@@ -95,9 +101,9 @@ def main () :
 				do_scroll(key)
 
 			if distance_between_fingers(i) > distance_between_fingers(i-1) :
-				do_pinch_zoom(out)
+				do_pinch_zoom('out')
 			elif distance_between_fingers(i) < distance_between_fingers(i-1) :
-				do_pinch_zoom(in)
+				do_pinch_zoom('in')
 
 
 		elif no_of_fingers == 3 :
@@ -110,7 +116,7 @@ def main () :
 				swipe(key)
 
 
-		counter += 1
+		i += 1
 
 if __name__ == '__main__' :
 	main()

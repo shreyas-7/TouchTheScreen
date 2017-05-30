@@ -65,9 +65,18 @@ The reason for using analog multiplexer is that arduino board have only 6 output
 
 Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
+![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/mux.jpg "Logo Title Text 1")
+
+
+![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/diag.JPG "Logo Title Text 1")
+
 Final size of frame - 24x40
 
-### 1.4 
+
+
+### 1.4 Problems
+
+
 
 
 

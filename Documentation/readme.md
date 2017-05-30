@@ -67,6 +67,8 @@ Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
 Final size of frame - 24x40
 
+### 1.4 
+
 
 
 

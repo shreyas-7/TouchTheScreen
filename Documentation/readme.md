@@ -59,6 +59,16 @@ Addition of multi finger gestures.
 
 **From the above options, we decided for option described in section 1.2.3**
 
+### 1.3 Analog Multiplexer 
+
+The reason for using analog multiplexer is that arduino board have only 6 output pins and we were performing test simultaneously on 40+24 LEDs so for taking 64 outputs we used 8pins multiplexers.
+
+Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
+
+Final size of frame - 24x40
+
+
+
 
 
 

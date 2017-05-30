@@ -76,7 +76,9 @@ Final size of frame - 24x40
 
 ### 1.4 Problems
 
-* Low intensity recorded by IR sensors
+#### 1.4.1 Low intensity recorded by IR sensors
+
+
 * Arduino was not able to supply enough power to the LEDs 
 * Demultiplexer caused a large voltage drop
 * Shift registers were also taken into use but caused the same problem i.e. intensity recorded by IR sensors was low.

@@ -39,23 +39,22 @@ def process_values(x_array,y_array) :
 	else :
 	 	return 0 , []
 
-	
 def do_click(count) :
 	# this function executes single click and is called when a single finger is detected
 	# do this either for x or y, it's fine
 	# y array is smaller
-	if memory_array_y[count-1] == False or memory_array_y[count-2] == False :
-		mouse.click(Button.left, 1)
+	if not drag_variable == 1 :
+		if memory_array_y[count-1] == False or memory_array_y[count-2] == False :
+			mouse.click(Button.left, 1)
 
-		
 def do_doubleclick(count) :
 	# this function executes double click by detecting one finger, no fingers, and again one finger within a certain period of time
-	truth_val = 0
-	for i in range(no_of_prev_measurements) :
-		if memory_array_y[count-i-1] == False and not memory_array_y[count-i-2] == False :
-			mouse.click(Button.left,2)
+	if not drag_variable == 1 :
+		truth_val = 0
+		for i in range(no_of_prev_measurements) :
+			if memory_array_y[count-i-1] == False and not memory_array_y[count-i-2] == False and almost_equal(memory_array_x[count], memmory_array_x[count-i-2]):
+				mouse.click(Button.left,2)
 
-			
 def do_rightclick(count) :
 	# if one finger is pressed for a certain amount of time, right click is executed
 	truth_val = 0
@@ -63,17 +62,32 @@ def do_rightclick(count) :
 	#	if memory_array_y[count-i] == False :
 	#		truth_val += 1
 	#if truth_val < 3 :
-	for i in range(2*no_of_prev_measurements) :
-		if memory_array_y[count-i-1] == False :
-			truth_val+= 1
+	if not drag_variable == 1 :
+		for i in range(2*no_of_prev_measurements) :
+			if not memory_array_y[count-i-1] == False and abs(memory_array_y[count]-memory_array_y[count-i-1]) < 50:
+				truth_val+= 1
 
-	if truth_val == 2*no_of_prev_measurements :	
-		mouse.click(Button.right, 1)
+		if truth_val > 2*no_of_prev_measurements - 5 :	
+			mouse.click(Button.right, 1)
 
-		
+
 def drag(count, key) :
-	# need to complete this function
-	truth_val = 0
+	if not drag_variable == 1 :
+		truth_val = 0
+		for i in range(2*no_of_prev_measurements) :
+			if not memory_array_y[count-i-1] == False and abs(memory_array_y[count]-memory_array_y[count-i-1]) > 10 :
+				truth_val += 1 
+
+		if truth_val > 2*no_of_prev_measurements :
+			drag_variable = 1
+			mouse.press(Button.left)
+#		if 1 :
+#    time.sleep(5)#
+#    mouse.press (Button.left)
+#     mouse.move(200,-200)
+#     time.sleep(10)
+#     mouse.release(Button.left)
+# 
 	
 
 def pinch_zoom(key) : 
@@ -84,7 +98,6 @@ def pinch_zoom(key) :
 		pyautogui.hotkey('cmd','+')
 
 
-		
 def do_scroll(count,key) :
 	# natural scrolling
 	if key == 'up' :
@@ -95,7 +108,6 @@ def do_scroll(count,key) :
 		mouse.scroll(scrolling_factor,0)
 	if key == 'right' :
 		mouse.scroll(-scrolling_factor,0)
-		
 
 def collection_without_normalisation() :
 	# collection of data from arduino, without normalisation
@@ -107,7 +119,6 @@ def collection_without_normalisation() :
 
     return np.array([volt_x,volt_y])
 
-
 def collection_with_normalisation() :
 	# collects the data and normalises it in range [0,1]
     arduinoString_x = arduinoData.readline()
@@ -118,7 +129,6 @@ def collection_with_normalisation() :
 
     return np.array([volt_x,volt_y])
 
-
 def nearby_collected(collected_values,extent,pos) : # given 1d array it returns array +- 5 elements
 	# returns a smaller dataset corresponding to nearby arrays of elements
 	x_ans = np.array([])
@@ -127,25 +137,21 @@ def nearby_collected(collected_values,extent,pos) : # given 1d array it returns 
 	while x-extent >= 0 and x+extent < screen_width :
 		np.append(x_ans, collected_values[0][])
 
-		
 def scale_values (reference_array):
 	# scales the values in [0,1]
     volt_x = np.array([1.0/x for x in reference_array[0]])
     volt_y = np.array([1.0/y for y in reference_array[1]])
 	return np.array([volt_x,volt_y])
 
-
 def nearest_led_number (x,y) :
 	# given the pixel number, returns the nearest led numbers
 	return int(round(screen_width*float(x)/horizontal_led)) , int(round(screen_width*float(x)/horizontal_led))
-
 
 def almost_equal(x,y) :
 	# yeah, needed this one due to slight fluctuations in measured values.
 	if abs(x-y) < allowed_pixels :
 		return True
 	return False
-
 
 def swipe(key) :
 	# executes swipe if three fingers are detected
@@ -158,7 +164,6 @@ def swipe(key) :
 	elif key == 'down' :
 		pyautogui.hotkey('ctrl','up')
 
-		
 def distance_between_fingers(count) :
 	# returns the sqrt of distance between two fingers
 	ans = 0
@@ -194,7 +199,6 @@ def find_key(count,index) :
 	else :
 		return y
 
-	
 def min_index (dataset) :
 	# minimum index of an array
 	return dataset.index(min(dataset))

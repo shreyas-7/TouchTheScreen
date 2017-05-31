@@ -2,9 +2,12 @@ import time
 import pyautogui
 import serial
 
-mux_val = 0
+# using a linear array of 8 LEDs and Photodiodes, this code moves the mouse to desired pixel in one dimension
+# upload 8LEDs code to Arduino
 
 threshold = 500
+
+no_of_led = 8
 
 dataset = []
 
@@ -21,7 +24,8 @@ while (True) :
 	position = dataset.index(min(dataset))
 
 	if dataset[position] < threshold :
-		pyautogui.moveTo(200*position ,450)
+		# this pixel (1440/no_of_led*position, 450)
+		pyautogui.moveTo(1440/no_of_led*position, 450)
 
 	print dataset
 

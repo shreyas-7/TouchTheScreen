@@ -41,9 +41,9 @@ Ultrasonic -> Fails to emit signals as the pen goes near to the display.
 Infrared -> Created a design for the pen which will work just fine, by using conical mirror to direct the signals perpendicular to the plane, and use of buttons to simulate a click
 **The design had it’s drawbacks, indeed causing us to drop the idea.**
 
-![sensor](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/sensor.jpeg)
+![sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor.jpeg)
 
-![ultarsonic_sensor](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/sensor1.jpg)
+![ultarsonic_sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor1.jpg)
 
 
 #### 1.2.3 Emitter-Reciever array on sides
@@ -55,7 +55,7 @@ Implementation of machine learning to improve accuracy.
 Addition of multi finger gestures.
 
 
-![Frame](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/frame.png)
+![Frame](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/frame.png)
 
 **From the above options, we decided for option described in section 1.2.3**
 
@@ -65,10 +65,10 @@ The reason for using analog multiplexer is that arduino board have only 6 output
 
 Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
-![pinout](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/mux.jpg)
+![pinout](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/mux.jpg)
 
 
-![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/diag.JPG)
+![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/diag.JPG)
 
 Final size of frame - 32x16
 
@@ -80,8 +80,8 @@ Final size of frame - 32x16
 
 After hours of soldering the boards, we made this :
 
-![All](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/image.jpg)
-![Photo_diodes](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/photo_diodes.jpg)
+![All](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/image.jpg)
+![Photo_diodes](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/photo_diodes.jpg)
 
 It was expected to work, but then came a few problems which took us four long days to debug 
 
@@ -127,26 +127,26 @@ Our observations were :
  ##### Machine Learning :
  
  We have used machine learning to improve accuracy of the location of the mouse pointer.
- The dataset is first collected and then trained to give a function that predicts the value of the mouse pointer more accurately.
+ The dataset is first collected and then trained to give a function that predicts the value of the mouse pointer more accurately. Scikit library is used for this purpose. Algorithm used for prediction is called Support Vector Regression algorithm.
 
 #### 1.6.1 Features :
  
- * Single Click
- * Double Click
- * Right Click
- * Drag
- * Scroll
- * Pinch-to-zoom
- * Three-finger-swipe
- * Four Finger Detection
+ * Single Click - simply touch the screen.
+ * Double Click - touch the screen, remove your finger and touch at the same position again.
+ * Right Click - touch and hold for some time at the same position.
+ * Drag - touch and hold, and move the mouse pointer a bit.
+ * Scroll - natural scrolling with two fingers, same as trackpad.
+ * Pinch-to-zoom - pinch to zoom out, opposite action to zoom in.
+ * Three-finger-swipe - same as in OSX.
+ * Four Finger Detection - just detection, can edit it for personalized usage.
  
 ##### Libraries used :
-* pyautogui
-* pynput
-* pySerial
-* scikit-learn
-* pandas
-* numpy
+* pyautogui - for controlling the mouse pointer
+* pynput - for additional features for the same, and taking keyboard inputs as well
+* pySerial - for receiving data from USB cable
+* scikit-learn - Machine learning
+* pandas - making and storing the dataframes into csv files
+* numpy - fast processing of arrays in python
 
 ##### First Review Meet ppt :
 

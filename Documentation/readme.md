@@ -70,32 +70,95 @@ Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
 ![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/diag.JPG)
 
-Final size of frame - 24x40
+Final size of frame - 32x16
 
 
 
 ### 1.4 Problems
 
-#### 1.4.1 Low intensity recorded by IR sensors
+##### 1.4.0 The unknown repellant breadboard-PCB nature
 
+After hours of soldering the boards, we made this :
 
-* Arduino was not able to supply enough power to the LEDs 
-* Demultiplexer caused a large voltage drop
+![All](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/image.jpg)
+![Photo_diodes](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/photo_diodes.jpg)
+
+It was expected to work, but then came a few problems which took us four long days to debug 
+
+Our observations were :
+
+* The LEDs on PCB, when used with Photo Diodes on PCB were giving very low intensity values
+* But when a single LED was powered and placed in front of PCB, it gave desired values, but it wasn't useful
+* So we tried an array of LEDs placed on a breadboard with Photo diodes on PCB. It gave crisp values again!
+* We thought maybe the soldering on the Photo diode PCB was wrong, so we resoldered it twice, and checked it again and again, failing every time.
+* We attached demultiplexers to the LEDs, and checked it with Photo diodes on PCB and Photo diodes on Breadboard, the latter one worked, but still PCB didn't work.
+* Same experiment using shift registers instead of demultiplexers gave same results.
+* Finally LEDs on PCB, without demultiplexers or shift registers, when used with Photo Diodes on Breadboard gave the desired intensity values, and we chose to use this as our final model.
+
+#### 1.4.1 Possible Causes
+
+* Arduino was not able to supply enough power to the LEDs when the complete frame was connected, but worked when one of the axes were powered up
+* Demultiplexer caused a large voltage drop across it, so the LEDs weren't able to get fully lit, ultimately causing lesser values in IR sensors
 * Shift registers were also taken into use but caused the same problem i.e. intensity recorded by IR sensors was low.
+* Connections on Photo Diode PCB
 
 ### 1.5 Solution to the Problems
 
-* The number of LEDs used was reduced so as to ensure that considerable intensity is shown by them
+* The number of LEDs used was reduced so as to ensure that considerable intensity is shown by them, also the power input was changed from arduino to a USB cable, connected to USB 3.0 that gives upto 0.9 A of current.
 * The appropriate photodiode circuit was made into the breadboard
 * Final assembly consist of LEDs placed 3 units apart in PCB and IR sensors in the breadboard.
 
 
+### 1.6 Final Model and features
 
+// Image
 
+#### 1.6.1 Working Mechanism :
+  
+ * The Arduino takes data from the analog multiplexers into it's analog pins while simultaneously writing digital data to the analog multiplexer that switches among Photodiodes via a code in the arduino.
+ * This data is then sent to the computer via the Arduino USB cable itself and accessed via python using pySerial library.
+ * This dataset is a dataset of two arrays, one for the horizontal LEDs and one for the vertical LEDs
+ * This data is normalised, and stored into a memory array of 50 elements
+ * When a finger is placed in between, value of a particular Photo diode decreases in value and the LED is detected, and the dataset is simultaneously appended to the memory array
+ * The memory array will help calling different features of this device
+ * So, depending on the number of fingers, action is taken, and with the help of some libraries, mouse pointer can be moved, mouse button can be clicked and several actions can be performed, leaving the user with touch screen capabilities on his non-touch screen laptop
+ * Finally, there is a high range to the number of fingers detected as this is no conventional touch-screen, it's infrared technology!
+ 
+ ##### Machine Learning :
+ 
+ We have used machine learning to improve accuracy of the location of the mouse pointer.
+ The dataset is first collected and then trained to give a function that predicts the value of the mouse pointer more accurately.
 
+#### 1.6.1 Features :
+ 
+ * Single Click
+ * Double Click
+ * Right Click
+ * Drag
+ * Scroll
+ * Pinch-to-zoom
+ * Three-finger-swipe
+ * Four Finger Detection
+ 
+##### Libraries used :
+* pyautogui
+* pynput
+* pySerial
+* scikit-learn
+* pandas
+* numpy
 
+##### First Review Meet ppt :
 
+##### Second Review Meet ppt :
 
+##### Third Review Meet ppt :
+
+##### Video Link :
+
+// Group Pic :
+
+// Credits , honours
 
 
 

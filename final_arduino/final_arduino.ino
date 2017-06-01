@@ -1,5 +1,4 @@
-
-int count = 0;  
+int i = 0;  
 int r0 = 0;      //
 int r1 = 0;      //
 int r2 = 0;      //
@@ -16,7 +15,9 @@ int s2 = 4;
 
 void setup(){  
   Serial.begin(9600);
-  
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
 }
 //
 //float X[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} ;
@@ -27,14 +28,14 @@ void loop () {
 //if (n == 0) {
 //for (int i = 0 ; i < 10 ; i ++) 
 //{
-//for (count=0; count<=7; count++) 
+//for (i=0; i<=7; i++) 
 //{
 //
-//    r0 = bitRead(count,0);    // use this with arduino 0013 (and newer versions)     
+//    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
 //
-//    r1 = bitRead(count,1);    // use this with arduino 0013 (and newer versions)     
+//    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
 //
-//    r2 = bitRead(count,2);    // use this with arduino 0013 (and newer versions)     
+//    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
 //
 //   
 //    digitalWrite(s0, r0);
@@ -43,17 +44,17 @@ void loop () {
 //
 //    digitalWrite(s2, r2);
 //    
-//   X[count] = analogRead(A0) ;
+//   X[i] = analogRead(A0) ;
 //   
 //}
 //
-//for (count=0; count<=7; count++) {
+//for (i=0; i<=7; i++) {
 //
-//    r0 = bitRead(count,0);    // use this with arduino 0013 (and newer versions)     
+//    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
 //
-//    r1 = bitRead(count,1);    // use this with arduino 0013 (and newer versions)     
+//    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
 //
-//    r2 = bitRead(count,2);    // use this with arduino 0013 (and newer versions)     
+//    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
 //
 //   
 //    digitalWrite(s0, r0);
@@ -62,20 +63,19 @@ void loop () {
 //
 //    digitalWrite(s2, r2);
 //    
-//   X[count+8] = analogRead(A1) ;
+//   X[i+8] = analogRead(A1) ;
 //   Serial.print(" ");
 //}}
 //}
 
-n = 1;
+  for (i=0; i<8; i++) 
+  {
 
-  for (count=0; count<48; count++) {
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
 
-    r0 = bitRead(count%8,0);    // use this with arduino 0013 (and newer versions)     
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
 
-    r1 = bitRead(count%8,1);    // use this with arduino 0013 (and newer versions)     
-
-    r2 = bitRead(count%8,2);    // use this with arduino 0013 (and newer versions)     
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
 
    
     digitalWrite(s0, r0);
@@ -87,39 +87,129 @@ n = 1;
  //Serial.print(digitalRead(s2));
     //Serial.print(digitalRead(s1));
     //Serial.print(digitalRead(s0));
-   if (count < 8) 
-   {
+    
+   
      Serial.print (analogRead(A0));
      Serial.print(" ");
-   }
-   else if (count < 16)
-   {
+  }
+     for (i=0; i<8; i++) {
+
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
+
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
+
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
+
+   
+    digitalWrite(s0, r0);
+
+    digitalWrite(s1, r1);
+
+    digitalWrite(s2, r2);
+
+ //Serial.print(digitalRead(s2));
+    //Serial.print(digitalRead(s1));
+    //Serial.print(digitalRead(s0));
+    
+   
      Serial.print (analogRead(A1));
      Serial.print(" ");
-   }
-   else if (count < 24)
-   {
+  }  
+  for (i=0; i<8; i++) {
+
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
+
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
+
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
+
+   
+    digitalWrite(s0, r0);
+
+    digitalWrite(s1, r1);
+
+    digitalWrite(s2, r2);
+
+ //Serial.print(digitalRead(s2));
+    //Serial.print(digitalRead(s1));
+    //Serial.print(digitalRead(s0));
+    
+   
      Serial.print (analogRead(A2));
      Serial.print(" ");
-   }
-   else if (count < 32)
-   {
+  }  
+  for (i=0; i<8; i++) {
+
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
+
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
+
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
+
+   
+    digitalWrite(s0, r0);
+
+    digitalWrite(s1, r1);
+
+    digitalWrite(s2, r2);
+
+ //Serial.print(digitalRead(s2));
+    //Serial.print(digitalRead(s1));
+    //Serial.print(digitalRead(s0));
+    
+   
      Serial.print (analogRead(A3));
      Serial.print(" ");
-   }
-  else if (count == 32)
+  }  
+  Serial.print("\n");
+  for (i=7; i>= 0; i--)
   {
-    Serial.print (analogRead(A4));
-    Serial.print("\n") ;
-  }
-  else if (count < 40)
+
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
+
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
+
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
+
+   
+    digitalWrite(s0, r0);
+
+    digitalWrite(s1, r1);
+
+    digitalWrite(s2, r2);
+
+ //Serial.print(digitalRead(s2));
+    //Serial.print(digitalRead(s1));
+    //Serial.print(digitalRead(s0));
+    
+   
+     Serial.print (analogRead(A4));
+     Serial.print(" ");
+  } 
+  
+  for (i=7; i>=0; i--)
    {
+
+    r0 = bitRead(i,0);    // use this with arduino 0013 (and newer versions)     
+
+    r1 = bitRead(i,1);    // use this with arduino 0013 (and newer versions)     
+
+    r2 = bitRead(i,2);    // use this with arduino 0013 (and newer versions)     
+
+   
+    digitalWrite(s0, r0);
+
+    digitalWrite(s1, r1);
+
+    digitalWrite(s2, r2);
+
+ //Serial.print(digitalRead(s2));
+    //Serial.print(digitalRead(s1));
+    //Serial.print(digitalRead(s0));
+    
+   
      Serial.print (analogRead(A5));
      Serial.print(" ");
-   }
-   else if (count == 48)
-   {
-    Serial.print("\n");
-   } 
   }
+  Serial.print("\n");
 }

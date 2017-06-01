@@ -41,9 +41,9 @@ Ultrasonic -> Fails to emit signals as the pen goes near to the display.
 Infrared -> Created a design for the pen which will work just fine, by using conical mirror to direct the signals perpendicular to the plane, and use of buttons to simulate a click
 **The design had it’s drawbacks, indeed causing us to drop the idea.**
 
-![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/sensor.jpeg "Logo Title Text 1")
+![sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor.jpeg)
 
-![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/sensor1.jpg "Logo Title Text 1")
+![ultarsonic_sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor1.jpg)
 
 
 #### 1.2.3 Emitter-Reciever array on sides
@@ -55,7 +55,7 @@ Implementation of machine learning to improve accuracy.
 Addition of multi finger gestures.
 
 
-![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/frame.png "Logo Title Text 1")
+![Frame](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/frame.png)
 
 **From the above options, we decided for option described in section 1.2.3**
 
@@ -65,10 +65,10 @@ The reason for using analog multiplexer is that arduino board have only 6 output
 
 Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
-![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/mux.jpg "Logo Title Text 1")
+![pinout](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/mux.jpg)
 
 
-![alt text](https://github.com/shreyas-7/TouchTheScreen/blob/master/diag.JPG "Logo Title Text 1")
+![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/diag.JPG)
 
 Final size of frame - 24x40
 

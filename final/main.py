@@ -29,7 +29,7 @@ no_of_prev_measurements = 10
 probablity = 7
 error1 = 10
 epsilon = 10
-drag_variable = 0
+# drag_variable = 0
 horizontal_led = 7
 vertical_led = 7
 
@@ -67,7 +67,7 @@ def main () :
 		if no_of_fingers == 0 :
 			memory_array_x[i] = []
 			memory_array_y[i] = []
-			drag_variable = 0
+			f.drag_variable = 0
 			f.mouse.release(Button.left)
 
 		elif no_of_fingers == 1 :
@@ -82,7 +82,7 @@ def main () :
 
 		elif no_of_fingers == 2 :
 
-			drag_variable = 0
+			f.drag_variable = 0
 
 			key0 = find_key(i,0)
 			key1 = find_key(i,1)
@@ -97,6 +97,7 @@ def main () :
 
 
 		elif no_of_fingers == 3 :
+			f.drag_variable = 0
 			memory_array_x[i] = x_pixels
 			memory_array_y[i] = y_pixels
 			key0 = find_key(i,0)

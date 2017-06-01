@@ -1,41 +1,59 @@
-import main
+import numpy as np
+
+
+initial_times = 50
+memory_elements = 50
+threshold = 90
+allowed_pixels = 10
+scrolling_factor = 10
+no_of_prev_measurements = 10
+probablity = 7
+error1 = 10
+epsilon = 10
+drag_variable = 0
+horizontal_led = 7
+vertical_led = 7
 
 def process_values(x_array,y_array) :
 	# a function which takes the readings from arduino
 	# returns two numpy arrays of length = number of fingers 
-	# and elements of that array correspond to the pixel values
-	x_res = np.array([0,[]])
-	y_res = np.array([0,[]])
+	# and elements of that array correspond to the LED VALUES!!!
+	x_fingers = 0
+	y_fingers = 0
+	x_res = np.empty(0, dtype = int)
+	y_res = np.empty(0, dtype = int)
+
 	for i in range(horizontal_led) :
-		if  x_array[i] < threshold and 
+		if  (x_array[i] < threshold and 
 			x_array[i] < x_array[i+1] and 
-			x_array[i] < x_array[i-1] :
-			x_res[0] += 1
-			np.append(x_res[1],i)
+			x_array[i] < x_array[i-1] ):
+				x_fingers += 1
+				x_res = np.append(x_res,[int(i)])
 	for i in range(vertical_led) :
-		if  y_array[i] < threshold and 
+		if  (y_array[i] < threshold and 
 			y_array[i] < y_array[i+1] and 
-			y_array[i] < y_array[i-1] :
-			y_res[0] += 1
-			np.append(y_res[1],i)
+		    y_array[i] < y_array[i-1] ):
+				y_fingers += 1
+				y_res = np.append(y_res,[int(i)])
+
 			#change this condition, to something better
-	if x_res[0] == 0 and y_res[0] == 0 :
+	if x_fingers == 0 and y_fingers == 0 :
 		return 0, []
 
-	elif x_res[0] == 1 and y_res[0] == 1 :
-		return 1 , x_res[1], y_res[1]
+	elif x_fingers == 1 and y_fingers == 1 :
+		return 1 , x_res, y_res
 
-	elif x_res[0] == 2 and y_res[0] == 2 :
-		return 2 , x_res[1], y_res[1]
+	elif x_fingers == 2 and y_fingers == 2 :
+		return 2 , x_res, y_res
 
-	elif x_res[0] == 2 and y_res[0] == 1 :
-		return 2, x_res[1], np.array([y_res[1],y_res[1]])
+	elif x_fingers == 2 and y_fingers == 1 :
+		return 2, x_res, np.array([y_res[0],y_res[0]])
 
-	elif x_res[0] == 1 and y_res[0] == 2 :
-		return 2, np.array([x_res[1],x_res[1]]), y_res[1]
+	elif x_fingers == 1 and y_fingers == 2 :
+		return 2, np.array([x_res,x_res]), y_res
 
-	elif x_res[0] == 3 or y_res[0] == 3 :
-		return 3, x_res[1], y_res[1]
+	elif x_fingers == 3 or y_fingers == 3 :
+		return 3, x_res, y_res
 	else :
 	 	return 0 , []
 
@@ -129,19 +147,18 @@ def collection_with_normalisation() :
 
     return np.array([volt_x,volt_y])
 
-def nearby_collected(collected_values,extent,pos) : # given 1d array it returns array +- 5 elements
+def nearby_collected(collected_values,extent,n) : # given 1d array it returns array +- 5 elements
 	# returns a smaller dataset corresponding to nearby arrays of elements
-	x_ans = np.array([])
-	low = pos - extent
+	min_index = max(0,n-extent)
+	max_index = min(n+extent,len(collected_values)-1)
+	print collected_values
+	return collected_values[min_index:max_index]
 
-	while x-extent >= 0 and x+extent < screen_width :
-		np.append(x_ans, collected_values[0][])
-
-def scale_values (reference_array):
+#def scale_values (reference_array):
 	# scales the values in [0,1]
-    volt_x = np.array([1.0/x for x in reference_array[0]])
-    volt_y = np.array([1.0/y for y in reference_array[1]])
-	return np.array([volt_x,volt_y])
+ #   volt_x = np.array([1.0/x for x in reference_array[0]])
+ #   volt_y = np.array([1.0/y for y in reference_array[1]])
+#	return np.array([volt_x,volt_y])
 
 def nearest_led_number (x,y) :
 	# given the pixel number, returns the nearest led numbers
@@ -203,4 +220,4 @@ def min_index (dataset) :
 	# minimum index of an array
 	return dataset.index(min(dataset))
 
-
+#print process_values (np.array([100,101,100,90,80,90,100], dtype = int),np.array([100,101,100,90,80,90,100] ,dtype = int))

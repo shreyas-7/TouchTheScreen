@@ -42,9 +42,9 @@ Ultrasonic -> Fails to emit signals as the pen goes near to the display.
 Infrared -> Created a design for the pen which will work just fine, by using conical mirror to direct the signals perpendicular to the plane, and use of buttons to simulate a click
 **The design had it’s drawbacks, indeed causing us to drop the idea.**
 
-![sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor.jpeg)
+![sensor](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/sensor.jpeg)
 
-![ultarsonic_sensor](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/sensor1.jpg)
+![ultarsonic_sensor](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/sensor1.jpg)
 
 
 #### 1.2.3 Emitter-Reciever array on sides
@@ -66,10 +66,10 @@ The reason for using analog multiplexer is that arduino board have only 6 output
 
 Mux used- CD4051 BE CMOS Single 8-Channel Analog Multiplexer/Demultiplexer
 
-![pinout](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/mux.jpg)
+![pinout](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/mux.jpg)
 
 
-![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/diag.JPG)
+![circuit diagram](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/diag.JPG)
 
 Final size of frame - 32x16
 
@@ -81,8 +81,8 @@ Final size of frame - 32x16
 
 After hours of soldering the boards, we made this :
 
-![All](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/image.jpg)
-![Photo_diodes](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/photo_diodes.jpg)
+![All](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/image.jpg)
+![Photo_diodes](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/photo_diodes.jpg)
 
 It was expected to work, but then came a few problems which took us four long days to debug 
 

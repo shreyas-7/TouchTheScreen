@@ -2,6 +2,7 @@
 
 ## TouchTheScreen
 
+
 ## Abstract
 
 We aim to create a device which adds touch screen input to any desktop screen.Our project is to construct a portable frame for a laptop display, which can be detached and reattached by the user, enabling touchscreen functionality whenever the user feels the need for it.
@@ -55,7 +56,7 @@ Implementation of machine learning to improve accuracy.
 Addition of multi finger gestures.
 
 
-![Frame](https://github.com/shreyas-7/TouchTheScreen/images/blob/master/frame.png)
+![Frame](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/frame.png)
 
 **From the above options, we decided for option described in section 1.2.3**
 

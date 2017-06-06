@@ -103,16 +103,16 @@ Our observations were :
 * Shift registers were also taken into use but caused the same problem i.e. intensity recorded by IR sensors was low.
 * Connections on Photo Diode PCB
 
-### 1.5 Solution to the Problems
+### 1.5 Solution to the Problems :
 
 * The number of LEDs used was reduced so as to ensure that considerable intensity is shown by them, also the power input was changed from arduino to a USB cable, connected to USB 3.0 that gives upto 0.9 A of current.
 * The appropriate photodiode circuit was made into the breadboard
 * Final assembly consist of LEDs placed 3 units apart in PCB and IR sensors in the breadboard.
 
 
-### 1.6 Final Model and features
+### 1.6 Final Model :
 
-// Image
+![Final Model](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/final_model.jpg)
 
 #### 1.6.1 Working Mechanism :
   
@@ -157,13 +157,14 @@ Our observations were :
 
 ##### Video Link :
 
-// Group Pic :
-
-// Credits , honours
+![Group Pic](https://github.com/shreyas-7/TouchTheScreen/blob/master/images/GroupPic.jpg)
 
 
 
+### Our Team (L to R):
+* Sanyam Khandelwal
+* Meet Kathiriya
+* Shreyas Pimpalgaonkar
+* Ayan Choudhary
 
-
-
-
+Thank you ![Pranav Sankhe](www.github.com/sabSAThai) for mentoring us throughout our project and made it possible.

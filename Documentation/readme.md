@@ -167,4 +167,4 @@ Our observations were :
 * Shreyas Pimpalgaonkar
 * Ayan Choudhary
 
-Thank you [Pranav Sankhe](https://github.com/sabSAThai/) for mentoring us throughout our project and made it possible.
+We thank [Pranav Sankhe](https://github.com/sabSAThai/), our mentor, for providing us great guidance throughout our project and made it possible.
